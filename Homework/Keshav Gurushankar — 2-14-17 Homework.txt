@@ -1,0 +1,11 @@
+Keshav Gurushankar Per. 8 — 2/14/17
+Pages 251-252 (1, 2, 3, 4, 5)
+	
+1. public String replace(String str, char c){}
+2. b, c, d, e, f
+3. C
+4. String has copy constructor, Color does not
+5. 	public Balloon(){
+		this.radius = 10;
+		this.color = new Color(135, 206, 250);
+	}
