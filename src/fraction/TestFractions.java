@@ -33,10 +33,24 @@ public class TestFractions {
 		System.out.println();
 	}
 
+	public static void testChoice() {
+		Fraction f1 = new Fraction(1, 2);
+		Fraction f2 = new Fraction(1, 3);
+
+		Fraction sum = f1.subtract(f2);
+		System.out.println(f1 + " - " + f2 + " = " + sum);
+
+		Fraction product = f1.divide(f2);
+		System.out.println(f1 + " / " + f2 + " = " + product);
+
+		System.out.println();
+	}
+
 	public static void main(String[] args) {
 		testConstructors();
 		testArithmetic();
 		testValues();
+		testChoice();
 		System.out.println(new Fraction(1.33));
 	}
 }
