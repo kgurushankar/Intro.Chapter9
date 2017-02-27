@@ -9,18 +9,26 @@ public class Fraction {
 	private int denom;
 
 	// *** Constructors ***
-
+	/** @return 0/1 */
 	public Fraction() // no-args constructor
 	{
 		num = 0;
 		denom = 1;
 	}
 
+	/** @return n/1 */
 	public Fraction(int n) {
 		num = n;
 		denom = 1;
 	}
 
+	/**
+	 * @param n
+	 *            numerator
+	 * @param d
+	 *            denominator
+	 * @return n/d
+	 */
 	public Fraction(int n, int d) {
 		if (d != 0) {
 			num = n;
@@ -54,44 +62,97 @@ public class Fraction {
 
 	}
 
+	/**
+	 * @param other
+	 *            the
+	 * @return a fraction equivalent to other
+	 */
 	public Fraction(Fraction other) // copy constructor
 	{
-		num = other.num;
-		denom = other.denom;
+		this.num = other.num;
+		this.denom = other.denom;
 	}
 
 	// *** public methods ***
 
-	// Returns the sum of this fraction and other
+	/**
+	 * @param other
+	 *            another fraction to be added to this fraction
+	 * @return sum of fraction and other
+	 */
 	public Fraction add(Fraction other) {
-		int newNum = num * other.denom + denom * other.num;
-		int newDenom = denom * other.denom;
-		return new Fraction(newNum, newDenom);
+		return new Fraction(this.num * other.denom + this.denom * other.num, this.denom * other.denom);
 	}
 
-	// Returns the sum of this fraction and m
+	/**
+	 * @param m
+	 *            an integer to be added to this fraction
+	 * @return sum of fraction and m
+	 */
 	public Fraction add(int m) {
 		return new Fraction(num + m * denom, denom);
 	}
 
-	// Returns the product of this fraction and other
-	public Fraction multiply(Fraction other) {
-		int newNum = num * other.num;
-		int newDenom = denom * other.denom;
-		return new Fraction(newNum, newDenom);
+	/**
+	 * @param other
+	 *            another fraction to be added to this fraction
+	 * @return sum of fraction and other
+	 */
+	public Fraction subtract(Fraction other) {
+		return new Fraction(this.num * other.denom - this.denom * other.num, this.denom * other.denom);
 	}
 
-	// Returns the product of this fraction and m
+	/**
+	 * @param m
+	 *            an integer to be added to this fraction
+	 * @return sum of fraction and m
+	 */
+	public Fraction subtract(int m) {
+		return new Fraction(num + m * denom, denom);
+	}
+
+	/**
+	 * @param other
+	 *            another fraction to be another factor
+	 * @return product of fraction and other
+	 */
+	public Fraction multiply(Fraction other) {
+		return new Fraction(this.num * other.num, this.denom * other.denom);
+	}
+
+	/**
+	 * @param m
+	 *            an integer to be another factor
+	 * @return product of fraction and other
+	 */
 	public Fraction multiply(int m) {
 		return new Fraction(num * m, denom);
 	}
 
-	// Returns the value of this fraction as a double
+	/**
+	 * @param other
+	 *            another fraction to be the divisor
+	 * @return quotient of fraction and other
+	 */
+	public Fraction divide(Fraction other) {
+		return new Fraction(this.num * other.denom, this.denom * other.num);
+	}
+
+	/**
+	 * @param m
+	 *            an integer to be the divisor
+	 * @return quotient of fraction and m
+	 */
+	public Fraction divide(int m) {
+		return new Fraction(num, denom * m);
+	}
+
+	/** @return value of fraction as double */
 	public double getValue() {
 		return (double) num / (double) denom;
 	}
 
-	// Returns a string representation of this fraction
+	/** @return fraction represented as a String */
 	public String toString() {
 		return num + "/" + denom;
 	}
