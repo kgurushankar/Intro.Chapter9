@@ -153,6 +153,7 @@ public class Fraction {
 	}
 
 	/** @return fraction represented as a String */
+	@Override
 	public String toString() {
 		return num + "/" + denom;
 	}
