@@ -147,6 +147,43 @@ public class Fraction {
 		return new Fraction(num, denom * m);
 	}
 
+	/** @return the reciprocal of the fraction */
+	public Fraction reciprocal() {
+		return new Fraction(this.num, this.denom);
+	}
+
+	/**
+	 * @param m
+	 *            the exponent
+	 * @return the fraction to the M th power
+	 */
+	public Fraction power(int m) {
+		if (m == 0) {
+			return new Fraction(1);
+		} else if (m > 0) {
+			Fraction out = new Fraction(this);
+			for (int i = 0; i < m; i++) {
+				this.multiply(this);
+			}
+			return out;
+		} else {
+			Fraction out = this.reciprocal();
+			for (int i = 0; i < m; i++) {
+				this.multiply(this);
+			}
+			return out;
+		}
+	}
+
+	/**
+	 * @param other
+	 *            the fraction to compare this to
+	 * @return this is the same as other
+	 */
+	public boolean equals(Fraction other) {
+		return (this.num == other.num && this.denom == other.denom);
+	}
+
 	/** @return value of fraction as double */
 	public double getValue() {
 		return (double) num / (double) denom;
