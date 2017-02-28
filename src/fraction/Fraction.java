@@ -177,6 +177,31 @@ public class Fraction {
 
 	/**
 	 * @param other
+	 *            the fraction that this is being compared to
+	 * @param mode
+	 *            the operator to use
+	 * @param mode
+	 *            valid input — = , == , > , >= , < , <=
+	 * @return this (mode) other
+	 */
+	public boolean compare(Fraction other, String mode) throws IllegalArgumentException {
+		if (mode.equals("=") || mode.equals("==")) {
+			return this.equals(other);
+		} else if (mode.equals(">")) {
+			return (this.num * other.denom > other.denom * this.num);
+		} else if (mode.equals(">=")) {
+			return (this.num * other.denom >= other.denom * this.num);
+		} else if (mode.equals("<")) {
+			return (this.num * other.denom < other.denom * this.num);
+		} else if (mode.equals("<=")) {
+			return (this.num * other.denom <= other.denom * this.num);
+		} else {
+			throw new IllegalArgumentException("Please enter valid input for mode: = , == , > , >= , < , <=");
+		}
+	}
+
+	/**
+	 * @param other
 	 *            the fraction to compare this to
 	 * @return this is the same as other
 	 */
