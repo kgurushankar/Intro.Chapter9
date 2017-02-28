@@ -51,12 +51,12 @@ public class SnackBar extends JFrame implements ActionListener {
 		int word = new String(password.getPassword()).hashCode();
 		password.setText("");
 		if (MY_PASSWORD == word) {
-			// double amt = Vendor.getTotalSales();
+			double amt = Vendor.getTotalSales();
 			machine1.reload();
 			machine2.reload();
 			machine3.reload();
 			JOptionPane.showMessageDialog(null,
-					// String.format("Total sales: $%.2f\n", amt) +
+					 String.format("Total sales: $%.2f\n", amt) +
 					"Machines reloaded", "Service", JOptionPane.INFORMATION_MESSAGE);
 		} else {
 			JOptionPane.showMessageDialog(null, "Login failed", "Service", JOptionPane.ERROR_MESSAGE);

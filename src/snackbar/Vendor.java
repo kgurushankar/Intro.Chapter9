@@ -10,11 +10,13 @@ public class Vendor {
 	private int stock;
 	private int moneyInserted;
 	private int change;
+	private static double totalSales;
 
 	public Vendor(int price, int stock) {
 		this.price = price;
 		this.stock = stock;
 		this.moneyInserted = 0;
+		Vendor.totalSales = 0;
 	}
 
 	public void setStock(int stock) {
@@ -36,6 +38,7 @@ public class Vendor {
 	public boolean makeSale() {
 		if (this.moneyInserted >= this.price && stock > 0) {
 			this.stock--;
+			Vendor.totalSales += this.price / 100.;
 			this.change = this.moneyInserted - this.price;
 			return true;
 		} else {
@@ -47,5 +50,9 @@ public class Vendor {
 	public int getChange() {
 		this.moneyInserted = 0;
 		return this.change;
+	}
+
+	public static double getTotalSales() {
+		return Vendor.totalSales;
 	}
 }
