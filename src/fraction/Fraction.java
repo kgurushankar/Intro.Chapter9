@@ -179,9 +179,10 @@ public class Fraction {
 	 * @param other
 	 *            the fraction that this is being compared to
 	 * @param mode
-	 *            the operator to use
-	 * @param mode
-	 *            valid input — = , == , > , >= , < , <=
+	 *            the operator to use <br>
+	 *            &emsp;&emsp;&emsp; valid input - = , == , > , >= , < , <=
+	 * @throws IllegalArgumentException
+	 *             if mode is invalid
 	 * @return this (mode) other
 	 */
 	public boolean compare(Fraction other, String mode) throws IllegalArgumentException {
