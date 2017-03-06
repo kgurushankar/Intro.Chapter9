@@ -53,6 +53,8 @@ public class Vendor {
 	}
 
 	public static double getTotalSales() {
-		return Vendor.totalSales;
+		double temp = Vendor.totalSales;
+		Vendor.totalSales = 0;
+		return temp;
 	}
 }
