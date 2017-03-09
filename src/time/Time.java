@@ -46,8 +46,8 @@ public class Time {
 	}
 
 	public Time(int hours, int min, boolean m) {
-		this(hours + ((m) ? 12 : 0), min);
-		this.twelveHrTime = !m;
+		this(hours + ((m) ? 0 : 12), min);
+		this.twelveHrTime = true;
 	}
 
 	public boolean lessThan(Time other) {
@@ -74,10 +74,11 @@ public class Time {
 
 	@Override
 	public String toString() {
-		return (!this.twelveHrTime) ? (format(hour) + ":" + format(min))
-				: (hour < 12) ? (format(hour) + ":" + format(min) + " AM")
-						: (hour == 12) ? (format(hour) + ":" + format(min) + " PM")
-								: (format(hour - 12) + ":" + format(min) + " PM");
+		return (!this.twelveHrTime) ? (hour + ":" + format(min))
+				: (hour == 0) ? ("12" + ":" + format(min) + " AM")
+						: (hour < 12) ? (hour + ":" + format(min) + " AM")
+								: (hour == 12) ? (hour + ":" + format(min) + " PM")
+										: ((hour - 12) + ":" + format(min) + " PM");
 	}
 
 	private String format(int value) {
