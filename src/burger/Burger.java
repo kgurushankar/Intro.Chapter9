@@ -48,7 +48,7 @@ public class Burger {
 
 	/** 1 patty = $2.00, 50 cents for cheese, $1 for each topping */
 	public double getTotalCost() {
-		return this.numberOfPatties * 1.0 + ((cheese) ? .50 : 0) + toppings.length;
+		return this.numberOfPatties * 2.0 + ((cheese) ? .50 : 0) + toppings.length;
 	}
 
 	public boolean isJuicierThan(Burger other) {
