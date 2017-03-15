@@ -1,8 +1,7 @@
 package time;
 
 import java.text.DecimalFormat;
-
-/* import java.util.Calendar; */
+import java.util.Calendar;
 
 public class Time {
 	public int hour;
@@ -71,6 +70,10 @@ public class Time {
 	public Time(int hours, int min, boolean m) {
 		this(hours + ((m) ? 0 : 12), min);
 		this.twelveHrTime = true;
+	}
+
+	public static Time now() {
+		return new Time(Calendar.HOUR_OF_DAY, Calendar.MINUTE);
 	}
 
 	public boolean lessThan(Time other) {
