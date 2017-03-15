@@ -33,6 +33,29 @@ public class Time {
 		this(min / 60, min % 60);
 	}
 
+	public Time(String str) {
+		String[] arr = str.split(" |:");
+		if (arr.length == 2) {
+			this.hour = Integer.parseInt(arr[0]);
+			this.min = Integer.parseInt(arr[1]);
+		} else if (arr.length == 3) {
+			this.hour = Integer.parseInt(arr[0]);
+			if (this.hour == 12) {
+				this.hour -= 12;
+			}
+			this.min = Integer.parseInt(arr[1]);
+			this.twelveHrTime = true;
+			if (arr[2].equals("AM")) {
+			} else if (arr[2].equals("PM")) {
+				this.hour += 12;
+			} else {
+				throw new IllegalArgumentException("Bad input!");
+			}
+		} else {
+			throw new IllegalArgumentException("Bad input!");
+		}
+	}
+
 	public Time(Time other) {
 		this.hour = other.hour;
 		this.min = other.min;
