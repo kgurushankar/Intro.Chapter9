@@ -41,9 +41,9 @@ public class Burger {
 	public Burger() {
 		this.levelOfCooking = Burger.MEDIUM;
 		this.numberOfPatties = 2;
-		this.toppings = new String[2];
-		this.toppings[0] = "cheese";
-		this.toppings[1] = "mushroom";
+		this.toppings = new String[1];
+		this.cheese = true;
+		this.toppings[0] = "mushroom";
 	}
 
 	/** 1 patty = $2.00, 50 cents for cheese, $1 for each topping */
