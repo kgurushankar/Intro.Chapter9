@@ -40,8 +40,8 @@ public class Fraction {
 	}
 
 	public Fraction(double d) {
-		long num = (int) (d * Integer.MAX_VALUE);
-		long denom = Integer.MAX_VALUE;
+		long num = (long) (d * 1000000000);
+		long denom = 1000000000;
 
 		if (num == 0) {
 			denom = 1;
@@ -52,13 +52,9 @@ public class Fraction {
 			num = -num;
 			denom = -denom;
 		}
-
-		long q = gcf(Math.abs(num), denom);
-		num /= q;
-		denom /= q;
-
-		this.num = (int) num;
-		this.denom = (int) denom;
+		long g = gcf(Math.abs(num), denom);
+		this.num = (int) (num / g);
+		this.denom = (int) (denom / g);
 
 	}
 
@@ -108,7 +104,7 @@ public class Fraction {
 	 * @return sum of fraction and m
 	 */
 	public Fraction subtract(int m) {
-		return new Fraction(num + m * denom, denom);
+		return new Fraction(num - m * denom, denom);
 	}
 
 	/**
