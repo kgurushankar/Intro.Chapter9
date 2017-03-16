@@ -29,9 +29,9 @@ public class BurgerChoice {
 		// comparing the cost.
 		if (xtraTopingTrippleDeckerRare.getTotalCost() > houseSpecial.getTotalCost())
 
-			System.out.println("It worths the money!");
+			System.out.println("It is worth the money!");
 		else
-			System.out.println("That cheaps!");
+			System.out.println("That's cheap!");
 	}
 
 }
