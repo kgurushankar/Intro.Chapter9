@@ -2,9 +2,13 @@ package burger;
 
 public class Burger {
 
-	public static final int RARE = 1;
-	public static final int MEDIUM = 2;
-	public static final int WELLDONE = 3;
+	public static final int UNCOOKED = 0;
+	public static final int RARE = 7;
+	public static final int MEDIUM_RARE = 12;
+	public static final int MEDIUM = 17;
+	public static final int DONE = 22;
+	public static final int WELLDONE = 27;
+	public static final int OVERDONE 33;
 
 	private int numberOfPatties;
 	private int levelOfCooking;
@@ -57,6 +61,7 @@ public class Burger {
 	}
 
 	public String toString() {
+		String cooked = (levelOfCooking==0)? "uncooked": (levelOfCooking<=5)? "rare":(levelOfCooking<=10)? "medium rare":(levelOfCooking==0)? "uncooked":(levelOfCooking==0)? "uncooked":(levelOfCooking==0)? "uncooked":(levelOfCooking==0)? "uncooked":
 		String base = "Burger with " + this.numberOfPatties + " patt" + ((this.numberOfPatties == 1) ? "y" : "ies");
 		String[] items = new String[((cheese) ? 1 : 0) + this.toppings.length];
 		if (cheese) {
