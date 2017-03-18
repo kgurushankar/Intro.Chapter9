@@ -8,7 +8,7 @@ public class Burger {
 	public static final int MEDIUM = 17;
 	public static final int DONE = 22;
 	public static final int WELLDONE = 27;
-	public static final int OVERDONE 33;
+	public static final int OVERDONE = 33;
 
 	private int numberOfPatties;
 	private int levelOfCooking;
@@ -61,8 +61,14 @@ public class Burger {
 	}
 
 	public String toString() {
-		String cooked = (levelOfCooking==0)? "uncooked": (levelOfCooking<=5)? "rare":(levelOfCooking<=10)? "medium rare":(levelOfCooking==0)? "uncooked":(levelOfCooking==0)? "uncooked":(levelOfCooking==0)? "uncooked":(levelOfCooking==0)? "uncooked":
-		String base = "Burger with " + this.numberOfPatties + " patt" + ((this.numberOfPatties == 1) ? "y" : "ies");
+		String cooked = (levelOfCooking <=5) ? "uncooked"
+				: (levelOfCooking <= 10) ? "rare"
+						: (levelOfCooking <= 15) ? "medium rare"
+								: (levelOfCooking <= 20) ? "medium"
+										: (levelOfCooking <= 25) ? "cooked"
+												: (levelOfCooking <= 30) ? "well done" : "overcooked";
+		String base = "Burger with " + this.numberOfPatties + " " + cooked + " patt"
+				+ ((this.numberOfPatties == 1) ? "y" : "ies");
 		String[] items = new String[((cheese) ? 1 : 0) + this.toppings.length];
 		if (cheese) {
 			items[0] = "cheese";
